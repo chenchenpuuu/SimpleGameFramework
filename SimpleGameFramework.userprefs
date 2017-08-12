@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/GUIManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/3rdParty/NGUI/Scripts/UI/UICamera.cs" Line="916" Column="29" />
+      <File FileName="Assets/Scripts/UI/GUIManager.cs" Line="61" Column="4" />
+      <File FileName="Assets/Scripts/Manager/ResourcesManager.cs" Line="17" Column="36" />
+      <File FileName="Assets/Scripts/UI/IView.cs" Line="19" Column="60" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

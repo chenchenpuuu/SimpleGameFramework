@@ -1,8 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class IView {
+//分出层级
+public enum UIPanelLayers
+{
+	BackgroundLayer = 0,
+	DefaultLayer = 10,
+	NormalLayer = 20,
+	MianLayer = 30,
+	MaskLayer = 40,
+	PopLayer = 50,
+	TipsLayer = 60,
+	PrompLayer = 70,
+	LoadingLayer = 80
+}
 
+public abstract class IView {
+	public UIPanelLayers uiLayers = UIPanelLayers.NormalLayer;
 	public void Start () 
 	{
 		OnStart ();

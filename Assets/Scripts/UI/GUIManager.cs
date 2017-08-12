@@ -16,6 +16,18 @@ public class GUIManager {
 		}
 		GameObject UIPrefeb = GameObject.Instantiate (prefeb) as GameObject; //实例化
 		UIPrefeb.name = prefebName;
+
+		Camera uiCamera = GameObject.FindWithTag ("UICamera").camera;		//实例化东西出来之后，指定一个物体
+		if(uiCamera == null)
+		{
+			Debug.LogError("UICamera is null");
+			return null;
+		}
+		UIPrefeb.transform.parent = uiCamera.transform;
+		UIPrefeb.transform.localScale = new Vector3 (1, 1, 1);
+		UIPrefeb.transform.localPosition = new Vector3 (prefeb.transform.localPosition.x, 
+		                                               prefeb.transform.localPosition.y,
+		                                                Mathf.Clamp (prefeb.transform.localPosition.z, -2f, 2f)); //层级关系
 		return UIPrefeb;
 	}
 
@@ -28,7 +40,25 @@ public class GUIManager {
 		if (!m_UIViewDic.TryGetValue (name, out found)) 
 		{
 			view = Assembly.GetExecutingAssembly().CreateInstance(name) as IView;
-			//panel 
+			panel = InstantiatePanel(name); 
+
+			if(view == null || panel == null)
+			{
+				Debug.LogError("View or Panel is null, Name: " + name);
+				return;
+			}
+			//设置层
+			UIPanel[] childsPanel = panel.GetComponentsInChildren<UIPanel>(true);
+			foreach(UIPanel childPanel in childsPanel)
+			{
+				childPanel.depth += (int)view.uiLayers;//保证显示
+			}
+			m_UIViewDic.Add(name, new KeyValuePair<GameObject, IView>(panel, view));
+
+			view.Start();		//
+		}else
+		{
+
 		}
 	}
 
