@@ -41,4 +41,10 @@ public class GUIManager {
 	{
 
 	}
+
+	public static IView FindView(GameObject go)
+	{
+		IView view = null;
+		return view;
+	}
 }
