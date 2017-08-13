@@ -30,6 +30,24 @@ public class ResourcesManager : MonoBehaviour {
 		}
 		return prefeb;
 	}
+	private string XMLPath = "Config";
+	public TextAsset LoadComfigXML(string name)
+	{
+		return LoadXMLAsset (name, XMLPath);
+	}
+
+	public TextAsset LoadXMLAsset(string name, string path)//直接ResourcesLoad了，如果打算放AB下载，就做个判断，做个异步
+	{
+		TextAsset XMLAsset = null;
+		string loadPath = path + "/" + name;
+		XMLAsset = Resources.Load (loadPath, typeof(TextAsset)) as TextAsset;
+
+		if (XMLAsset == null) {
+			Debug.LogError("XMLAsset is null, loadPath: " + loadPath);
+			return null;
+		}
+		return XMLAsset;
+	}
 	// Use this for initialization
 	void Start () {
 	

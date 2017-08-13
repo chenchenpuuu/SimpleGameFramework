@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\3rdParty\CommonHelper.cs" />
      <Compile Include="Assets\Scripts\3rdParty\NGUI\Scripts\Interaction\LanguageSelection.cs" />
      <Compile Include="Assets\Scripts\3rdParty\NGUI\Scripts\Interaction\TypewriterEffect.cs" />
      <Compile Include="Assets\Scripts\3rdParty\NGUI\Scripts\Interaction\UIButton.cs" />
@@ -147,6 +148,7 @@
      <Compile Include="Assets\Scripts\3rdParty\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\Scripts\3rdParty\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\Scripts\3rdParty\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\Scripts\DataModel\DataManager.cs" />
      <Compile Include="Assets\Scripts\DataModel\SceneData.cs" />
      <Compile Include="Assets\Scripts\GameState\BattleState.cs" />
      <Compile Include="Assets\Scripts\GameState\CityState.cs" />
@@ -157,6 +159,7 @@
      <Compile Include="Assets\Scripts\Manager\DownloadManager.cs" />
      <Compile Include="Assets\Scripts\Manager\GameMain.cs" />
      <Compile Include="Assets\Scripts\Manager\ResourcesManager.cs" />
+     <Compile Include="Assets\Scripts\UI\CameraSet.cs" />
      <Compile Include="Assets\Scripts\UI\DontDestroyOnMe.cs" />
      <Compile Include="Assets\Scripts\UI\GUIManager.cs" />
      <Compile Include="Assets\Scripts\UI\IView.cs" />
