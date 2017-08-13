@@ -51,25 +51,58 @@ public class GUIManager {
 			UIPanel[] childsPanel = panel.GetComponentsInChildren<UIPanel>(true);
 			foreach(UIPanel childPanel in childsPanel)
 			{
-				childPanel.depth += (int)view.uiLayers;//保证显示
+				childPanel.depth += (int)view.UILayer;//保证显示
 			}
 			m_UIViewDic.Add(name, new KeyValuePair<GameObject, IView>(panel, view));
 
 			view.Start();		//
 		}else
 		{
-
+			view = found.Value;
+			panel = found.Key;
+			if(view == null || panel == null)
+			{
+				Debug.LogError("View or Panel is null in m_UIViewDic, Name: " + name);
+				return;
+			}
 		}
+
+		foreach(KeyValuePair<string, KeyValuePair<GameObject, IView>> pair in m_UIViewDic)
+		{
+			if(view.UILayer != pair.Value.Value.UILayer)  ///把跟我同一层的隐藏掉
+			{
+				continue;
+			}
+			if(!pair.Value.Key.activeSelf)
+			{
+				continue;
+			}
+		}
+		UIPanel uiPanel = panel.GetComponent<UIPanel> ();
+		uiPanel.alpha = 1;
+
+		panel.SetActive (true);
+		view.Show ();
 	}
 
 	public static void HideView(string name)
 	{
-
+		KeyValuePair<GameObject, IView> pair;
+		if (!m_UIViewDic.TryGetValue (name, out pair)) {
+			return;
+		}
+		pair.Key.SetActive (false);
+		pair.Value.Hide ();
 	}
 
 	public static void DestroyAllView()
 	{
-
+		foreach (KeyValuePair<GameObject, IView> item in m_UIViewDic.Values) {
+			item.Value.Destroy();
+			GameObject.Destroy(item.Key);
+		}
+		m_UIViewDic.Clear ();
+		Resources.UnloadUnusedAssets ();
 	}
 
 	public static IView FindView(GameObject go)
@@ -77,4 +110,30 @@ public class GUIManager {
 		IView view = null;
 		return view;
 	}
+
+	public static void Update()
+	{
+		foreach (KeyValuePair<GameObject, IView> item in m_UIViewDic.Values) {
+			if(item.Key.activeInHierarchy)
+			{
+				item.Value.Update();
+			}
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

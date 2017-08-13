@@ -11,7 +11,7 @@ public class GameStateManager : MonoBehaviour {
 		m_GameStateMap = new Dictionary<string, GameState> ();
 		m_CurGameState = null;
 		//load场景
-
+		LoadScene (0);//还没表 加点假数据
 	}
 
 	private static void SetState(GameState state)
@@ -27,7 +27,9 @@ public class GameStateManager : MonoBehaviour {
 	}
 	
 	public static void LoadScene (int SceneId) {  //每个场景配置在表里，根据SceneId去加载场景
-		SceneData data = null;
+		SceneData data = new SceneData ();
+		data.LevelName = "login";
+		data.GameState = "LoginState";
 		if (data == null) {
 			Debug.LogError("Init SceneData is null, SceneId:" + SceneId);
 			return;

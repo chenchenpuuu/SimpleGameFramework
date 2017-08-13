@@ -16,7 +16,7 @@ public enum UIPanelLayers
 }
 
 public abstract class IView {
-	public UIPanelLayers uiLayers = UIPanelLayers.NormalLayer;
+	public UIPanelLayers UILayer = UIPanelLayers.NormalLayer;
 	public void Start () 
 	{
 		OnStart ();
@@ -52,6 +52,7 @@ public abstract class IView {
 		OnDrag (sender, param);
 	}
 
+	public virtual void Update(){}
 	protected abstract void OnStart();
 	protected abstract void OnDestroy();
 	protected abstract void OnShow();
