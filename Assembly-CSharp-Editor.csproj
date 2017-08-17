@@ -178,6 +178,7 @@
      <None Include="Assets\Scripts\3rdParty\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
      <None Include="Assets\Resources\Config\BattleData.xml" />
      <None Include="Assets\Resources\Config\BossAIData.xml" />
+     <None Include="Assets\ImportAssets\Textures\UI\Texture2D\Texture2D_Number\FightFont1.fnt" />
      <None Include="Assets\Scripts\3rdParty\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\Scripts\3rdParty\NGUI\Resources\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\Scripts\3rdParty\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
